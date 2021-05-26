@@ -1,13 +1,13 @@
 package main
 
 import (
-	"auth"
 	"encoding/json"
-	"excel"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
+	"miner/auth"
+	"miner/excel"
 	"net/http"
 	"os"
 	"score"
