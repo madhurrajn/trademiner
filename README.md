@@ -6,12 +6,14 @@ Trade miner is a Market Mining Application.  Trade Miner Application can work on
  
  Sample Scoring of the option for NSE can be seen in
  
+ 
+ #Sample
  https://docs.google.com/spreadsheets/d/1kf_2FEF39tgJ3zjMDS5Sgf_vUfJDDQr6f-WlKYvxAAM/edit#gid=0
  
-Framework.
+#Framework.
 Interested developers shall be able to add the AI algorithms, can be used for commercial or non commercial purposes. The frameworks provides necessary hooks to run the custom algorithms which can influence the trading score.
 
-Installation
+#Installation
 1. Clone the Tradminer 
 2. Set the GOPATH=$INSTALLPATH/trademiner
 3. Run `make dep`
