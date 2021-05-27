@@ -30,8 +30,9 @@ func GetAllNseScripts() []ScriptInfo {
 }
 
 func Init() {
-	f, err := excelize.OpenFile("nse.xlsx")
+	f, err := excelize.OpenFile("config/nse.xlsx")
 	if err != nil {
+		f, err = excelize.OpenFile("config/nse.xlsx")
 		fmt.Println(err)
 		return
 	}

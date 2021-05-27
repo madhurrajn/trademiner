@@ -154,14 +154,7 @@ func PushCommand(symbol string, sheetId string) {
 type Matrix [][]interface{}
 
 func Push2DArray(array Matrix, sheetId string, sheetName string) {
-	//values := make([][]interface{}, len(array))
-	//for idx, obj := range values {
-	//	innerObj := make([]interface{}, len(obj))
-	//	for index, elem := range obj {
-	//		innerObj[index] = elem
-	//	}
-	//	values[idx] = innerObj
-	//}
+
 	readRange := fmt.Sprintf("%s", sheetName)
 	WriteData(sheetId, readRange, array)
 }

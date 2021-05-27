@@ -18,3 +18,8 @@ src/cloud.google.com/
 src/github.com/
 src/golang.org/
 src/google.golang.org/
+src/go.opencensus.io/
+bin
+.vscode
+users.csv
+logs.txt

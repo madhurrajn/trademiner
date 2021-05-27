@@ -1,4 +1,4 @@
-package main
+package runner
 
 import (
 	"encoding/json"
@@ -10,7 +10,6 @@ import (
 	"miner/excel"
 	"net/http"
 	"os"
-	"score"
 
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
@@ -99,7 +98,7 @@ func test() {
 		log.Fatalf("Unable to retrieve Sheets client: %v", err)
 	}
 	excel.Init()
-	allScripts := excel.GetAllScripts()
+	allScripts := excel.GetAllNseScripts()
 
 	numObject := len(allScripts)
 	fmt.Printf("NumObjects %d\n", numObject)
@@ -162,9 +161,9 @@ func main() {
 	auth.Init()
 	switch *cmdPtr {
 	case "refresh":
-		score.Refresh()
+		//score.Refresh()
 	case "score":
-		score.Run()
+		//score.Run()
 	default:
 		fmt.Printf("Unsupported Command")
 	}

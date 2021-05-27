@@ -36,7 +36,7 @@ deps:
 	$(GOGET) golang.org/x/oauth2/google
 	$(GOGET) github.com/nanobox-io/golang-scribble
 	$(GOGET) github.com/360EntSecGroup-Skylar/excelize
-	$(GOGET) google.golang.org/api/sheets
+	$(GOGET) google.golang.org/api/sheets/v4
 
 .PHONY: $(TOPTARGETS) $(SUBDIRS) $(POSTSUBDIRS)
 

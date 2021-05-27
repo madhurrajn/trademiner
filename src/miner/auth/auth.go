@@ -24,12 +24,12 @@ func getClient(config *oauth2.Config) *http.Client {
 	// The file token.json stores the user's access and refresh tokens, and is
 	// created automatically when the authorization flow completes for the first
 	// time.
-	tokFile := "token.json"
+	tokFile := "config/token.json"
 	tok, err := tokenFromFile(tokFile)
 	if err != nil {
 		fmt.Printf("%v\n", config)
 		tok = getTokenFromWeb(config)
-		fmt.Printf("%v\n", tok)
+		fmt.Printf("Received Token %v\n", tok)
 		saveToken(tokFile, tok)
 	}
 	fmt.Printf("%v\n", tok)
@@ -51,10 +51,12 @@ func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {
 		log.Fatalf("Unable to read authorization code: %v", err)
 	}
 
+	fmt.Printf("Scanning for Auth Code complete")
 	tok, err := config.Exchange(context.TODO(), authCode)
 	if err != nil {
 		log.Fatalf("Unable to retrieve token from web: %v", err)
 	}
+	fmt.Printf("Exchange Complete")
 	return tok
 }
 
@@ -83,13 +85,15 @@ func saveToken(path string, token *oauth2.Token) {
 
 func Init() {
 
-	b, err := ioutil.ReadFile("credentials.json")
+	b, err := ioutil.ReadFile("config/credentials.json")
 	if err != nil {
-		log.Fatalf("Unable to read client secret file: %v", err)
+		log.Println("Unable to read client secret file: %v", err)
+		b, _ = ioutil.ReadFile("config/credentials.json")
 	}
 
 	config, err := google.ConfigFromJSON(b, "token.json")
 	if err != nil {
+		config, _ = google.ConfigFromJSON(b, "config/token.json")
 		log.Fatalf("Unable to parse client secret file to config: %v", err)
 	}
 
