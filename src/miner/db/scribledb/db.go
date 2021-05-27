@@ -8,7 +8,7 @@ import (
 
 var globalDbObj *scribble.Driver
 
-var dir = "/Users/madhurrajn/nseobject"
+var dir = "/home/madhurrajn/nseobject"
 
 func InitScribbleDb() (*scribble.Driver, error) {
 	dbObj, err := scribble.New(dir, nil)
