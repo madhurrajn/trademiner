@@ -1,0 +1,33 @@
+version: '3.3'
+# stages:
+#   # - checkout
+#   # - test
+#   - build
+services:
+  # main_clone:
+  #   title: Cloning main repository...
+  #   type: git-clone
+  #   stage: checkout
+  #   repo: 'codefresh-contrib/golang-sample-app'
+  #   revision: master
+  #   git: github
+  # MyUnitTests:
+  #   title: Unit test
+  #   stage: test
+  #   image: 'golang:1.12'
+  #   commands:
+  #     - go test -v
+  trademiner:
+    build: .
+    tty: true
+    # title: Building Docker Image
+    # type: build
+    # stage: build
+    # image_name: my-golang-image
+    # working_directory: ./
+    # tag: modules
+    # dockerfile: Dockerfile.mod
+    volumes :
+       - ./src/miner:/usr/local/go/src/miner
+       - ./src/miner/runner:/usr/local/go/src/miner/runner
+
